@@ -8,37 +8,47 @@ for (let i = 0; i < btnPlus.length; i++) {
     btnPlus[i].addEventListener("click", increment);
     delet[i].addEventListener("click", deletee);
     btnmin[i].addEventListener("click", min);
-
-
+    
+ 
 }
 
-function min(e) {
+function min(e){
 
-    var btnMin = e.target;
-    var divElt = btnMin.parentElement;
-    var total = bt
-    var quentitytag = divElt.querySelector("p");
-    // console.log(quentitytag)
-    quentityvalue = Number(quentitytag.innerHTML);
-    if (quentityvalue > 1) {
-        quentityvalue--;
-    }
+    var  btnMin=e.target;
+    var divElt=btnMin.parentElement;
+    var quentitytag=divElt.querySelector("p");
+   // console.log(quentitytag)
+   quentityvalue=Number(quentitytag.innerHTML);
+   if(quentityvalue>0)
+   {
+      quentityvalue--;
+   }
 
+   
     //console.log(quentityvalue);
     quentitytag.innerHTML = quentityvalue;
+    //console.log(quentitytag);
     var trElt = divElt.parentElement.parentElement;
     //console.log(trElt);
-    var unitpricevalue = Number(trElt.querySelector(".unitePrice").innerHTML);
+     var unitpricevalue = Number(trElt.querySelector(".unitePrice").innerHTML);
     //console.log(unitpricevalue)
-    var pricetag = trElt.querySelector(".price");
-    var pricevalue = Number(pricetag.innerHTML);
-    pricevalue = quentityvalue * unitpricevalue;
-    pricetag.innerHTML = pricevalue;
-
-
-
-
-}
+     var subtotaltag = trElt.querySelector(".price");
+     //console.log(subtotaltag);
+     var subtotaltvalue = Number(subtotaltag.innerHTML);
+     //console.log(pricevalue);
+     subtotaltvalue = quentityvalue * unitpricevalue;
+ subtotaltag.innerHTML = subtotaltvalue;
+    // //console.log(pricevalue);
+    //console.log(subtotaltvalue);
+    var totaltag=document.getElementById("total");
+    var totalvalue=Number(totaltag.innerHTML);
+ 
+    totalvalue=totalvalue-unitpricevalue-unitpricevalue*0.19;
+    
+    totaltag.innerHTML=totalvalue;
+  
+  
+  }
 
 function increment(event) {
     //console.log(event);
@@ -51,13 +61,26 @@ function increment(event) {
     quentityvalue++;
     //console.log(quentityvalue);
     quentitytag.innerHTML = quentityvalue;
+    //console.log(quentitytag);
     var trElt = divElt.parentElement.parentElement;
-    var unitpricevalue = Number(trElt.querySelector(".unitePrice").innerHTML);
-    console.log(unitpricevalue)
-    var pricetag = trElt.querySelector(".price");
-    var pricevalue = Number(pricetag.innerHTML);
-    pricevalue = quentityvalue * unitpricevalue;
-    pricetag.innerHTML = pricevalue;
+    //console.log(trElt);
+     var unitpricevalue = Number(trElt.querySelector(".unitePrice").innerHTML);
+    //console.log(unitpricevalue)
+     var subtotaltag = trElt.querySelector(".price");
+     //console.log(subtotaltag);
+     var subtotaltvalue = Number(subtotaltag.innerHTML);
+     //console.log(pricevalue);
+     subtotaltvalue = quentityvalue * unitpricevalue;
+ subtotaltag.innerHTML = subtotaltvalue;
+    // //console.log(pricevalue);
+    //console.log(subtotaltvalue);
+    var totaltag=document.getElementById("total");
+    var totalvalue=Number(totaltag.innerHTML);
+ 
+    totalvalue=totalvalue+unitpricevalue+unitpricevalue*0.19;
+    
+    totaltag.innerHTML=totalvalue;
+
 
 }
 
@@ -72,13 +95,3 @@ function deletee(e) {
 
 }
 
-function totelprice(e) {
-    checkbox = e.target;
-    var pricevalue = Number(checkbox.parentElement.parentElement.querySelector(".price").innerHTML);
-    var totaltag = document.getElementById("total");
-    var totalvalue = Number(totaltag.innerHTML);
-    var btnPluss = checkbox.parentElement.parentElement.querySelector(".plus");
-
-
-
-}
