@@ -23,6 +23,7 @@ function min(e){
    {
       quentityvalue--;
    }
+   
 
    
     //console.log(quentityvalue);
@@ -44,7 +45,10 @@ function min(e){
     var totalvalue=Number(totaltag.innerHTML);
  
     totalvalue=totalvalue-unitpricevalue-unitpricevalue*0.19;
-    
+    if(totalvalue<0){
+        totalvalue=0;
+        totaltag.innerHTML=0;
+    }
     totaltag.innerHTML=totalvalue;
   
   

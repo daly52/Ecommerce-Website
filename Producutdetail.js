@@ -19,11 +19,14 @@ function min(e){
     var quentitytag=divElt.querySelector("p");
    // console.log(quentitytag)
    quentityvalue=Number(quentitytag.innerHTML);
-   if(quentityvalue>0)
+   if(quentityvalue>1)
    {
       quentityvalue--;
    }
-
+   else if(quentityvalue==1){
+    totaltag.innerHTML=50;
+  
+  }
   
 
    
@@ -35,7 +38,11 @@ function min(e){
    console.log(totalvalue);
    totalvalue=totalvalue-50;
    
-   
+   if(totalvalue<0 ){
+    totalvalue=0;
+    totaltag.innerHTML=0;
+}
+
     //console.log(totalvalue);
 
       
